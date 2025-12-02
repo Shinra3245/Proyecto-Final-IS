@@ -4,4 +4,4 @@ console.log('hola mundo desde el index.ts')
 
 sumar()
 
-console.log('despues de sumar')
+console.log('hola buuelito 69 <3')
