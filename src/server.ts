@@ -15,7 +15,11 @@ async function connectDB(){
     }
 }
 connectDB()// Manda llamar la función para conectarnos a la BD
+// Instancia de express
 const server = express()
+
+// Leer datos de formularios, recupera la info enviada 
+server.use(express.json())
 
 //filtra la accion http mediante esta linea, tambien se puede camiar la ruta
 server.use('/api/productos', router)
