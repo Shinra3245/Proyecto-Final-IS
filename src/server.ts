@@ -1,5 +1,7 @@
 import express from 'express'
 import colors from 'colors'
+import swaggerUI from 'swagger-ui-express'
+import swaggerSpec from './config/swagger'
 import router from './router'
 import db from './config/db'
 
@@ -24,8 +26,8 @@ server.use(express.json())
 //filtra la accion http mediante esta linea, tambien se puede camiar la ruta
 server.use('/api/productos', router)
 
-server.get('/api', (req, res) => {
-res.json({msg: 'Desde API'})
-})
+// Ruta de prueba
+server.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec) )
+
 
 export default server

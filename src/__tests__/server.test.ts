@@ -1,22 +1,9 @@
-import request from 'supertest'
-import server, { connectDB} from '../server'
+import { connectDB } from '../server'
 import db from '../config/db'
 
-describe('GET /api', () =>{
-    it('should send back a json response', async () =>{
-        const res = await request(server).get('/api')
 
-        expect(res.status).toBe(200)  
-        expect(res.headers['content-type']).toMatch(/json/)
-        console.log(res.body.msg)
 
-        expect(res.status).not.toBe(404)  
-        console.log(res.body.msg)
-
-    })
-})
-
-//creacion del mock
+// creacion de un mock para la base de datos
 jest.mock('../config/db')
 
 describe('connectDB function', () => {
@@ -32,8 +19,3 @@ describe('connectDB function', () => {
 })
 
 
-/*describe('Nuestro primer test', ()=>{
-    it('Debe revisar que 1 + 1 es 2', () => {
-        expect(1 + 1).toBe(2)
-    })
-})*/
